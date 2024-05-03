@@ -21,7 +21,7 @@ FCITEM-8: Inconsistent application of security protocols across platforms observ
 * High quality: thanks to the underlying well-trained BERT model, has excellent semantic matching capabilities to find the data you need, when you need it.
 * Easy: Simple to use and deploy. Get this running on your dataset within 20 minutes, then expose search functionality with a friendly UI.
 * Private: No internet connectivity is needed. Keep your data safe and confidential within your organization.
-* Fast: Leverages your Nvidia GPU or Macbook Metal to expedite searches, even with 10s of thousands of items
+* Fast: Leverages your Nvidia GPU or Macbook Metal for fast searches, even with 10s of thousands of items
 
 # initial setup
 _Note: Python 3.11.2 has been tested_
@@ -42,7 +42,8 @@ _note: if this step takes more than a few seconds, the software didn't detect nv
 # test inference via task system
 perform this step to ensure that the task queueing system is functional before starting API server
 ```
-python -m ss_app.main ```
+python -m ss_app.main
+```
 
 # start API server
 python manage.py runserver 127.0.0.1:7878
