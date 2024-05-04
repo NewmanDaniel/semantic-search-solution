@@ -21,12 +21,15 @@ COPY requirements.txt .
 # Install the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# python -> python3
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
 # Copy the rest of the application code to the working directory
 COPY ss_back_end /app
 
 # Run sample training session. This enables it to download all needed model / tensor files so it is included in the image.
 RUN echo "Running a test training step, which will download necessary model files so they are cached in the image"
-RUN python3 -m ss_app.semantic_search sample_data/financial_compliance_feedback_database.csv
+RUN python -m ss_app.semantic_search sample_data/financial_compliance_feedback_database.csv
 
 #CMD ["asdfpython3", "-m", "ss_app.semantic_search", "sample_data", "financial_compliance_feedback_database.csv"]
 #CMD ["asdfijasdoifjaosidjfoiasdjf", "-m", "ss_app.semantic_search", "sample_data", "financial_compliance_feedback_database.csv"]
