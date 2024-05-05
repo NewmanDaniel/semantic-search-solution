@@ -2,7 +2,6 @@
 
 # Start services
 ./start-services.sh &
-
-# Start a shell
-exec /bin/bash
-
+#
+# start web server
+python manage.py runserver 0.0.0.0:7878

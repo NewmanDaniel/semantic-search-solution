@@ -1,1 +1,1 @@
-sudo docker run -p 7878:7878 --gpus all -it 381193de54d46aeb3561cb8c92c469824424af83725007513d5ec7ecb28e525f
+sudo docker run -p 7878:7878 --gpus all -it semanticsearch

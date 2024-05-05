@@ -1,6 +1,14 @@
 version: '3'
 services:
-  web:
+  semanticsearch:
     build: .
+    image: semanticsearch
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
     ports:
-      - "8000:8000"
+      - "7878:7878"
+    command: ["/bin/bash", "docker-entrypoint.sh"]
+
