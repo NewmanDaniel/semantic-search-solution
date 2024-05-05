@@ -38,10 +38,5 @@ RUN python -m ss_app.semantic_search sample_data/financial_compliance_feedback_d
 EXPOSE 8000
 
 # Start RabbitMQ and Redis services when the container starts
-#CMD ["rabbitmq-server", "&", "redis-server"]
-
-
-# Run the Django development server
-#CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
-
-CMD ["/bin/bash"]
+COPY docker-entrypoint.sh .
+CMD ["/bin/bash", "docker-entrypoint.sh"]

@@ -106,6 +106,9 @@ def get_top_k_similar_proposals(DESCRIPTION: str, top_k: int=5) -> list:
 
 if __name__ == "__main__":
     path = sys.argv[1]
+    if not path:
+        raise Exception("Must specify path.")
+
     data = pd.read_csv(path)
     print("- Loaded proposals csv")
 
