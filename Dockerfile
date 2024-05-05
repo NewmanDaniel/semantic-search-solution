@@ -31,11 +31,8 @@ COPY ss_back_end /app
 RUN echo "Running a test training step, which will download necessary model files so they are cached in the image"
 RUN python -m ss_app.semantic_search sample_data/financial_compliance_feedback_database.csv
 
-#CMD ["asdfpython3", "-m", "ss_app.semantic_search", "sample_data", "financial_compliance_feedback_database.csv"]
-#CMD ["asdfijasdoifjaosidjfoiasdjf", "-m", "ss_app.semantic_search", "sample_data", "financial_compliance_feedback_database.csv"]
-
 # Expose the port on which your Django application will run (change if necessary)
-EXPOSE 8000
+EXPOSE 7878
 
 # Start RabbitMQ and Redis services when the container starts
 COPY docker-entrypoint.sh .

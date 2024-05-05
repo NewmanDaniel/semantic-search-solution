@@ -1,1 +1,1 @@
-sudo docker run -p 6969:6969 --gpus all -it af47d5a2d380458e8e71c18aec900886e41e34cfa7b49632fe52edb627ad079b
+sudo docker run -p 7878:7878 --gpus all -it 381193de54d46aeb3561cb8c92c469824424af83725007513d5ec7ecb28e525f

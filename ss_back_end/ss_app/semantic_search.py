@@ -95,7 +95,7 @@ def find_similar_proposals(DESCRIPTION, top_k=5):
 
 @app.task
 def get_top_k_similar_proposals(DESCRIPTION: str, top_k: int=5) -> list:
-    f = open('dbpath.txt', r)
+    f = open('dbpath.txt', 'r')
     path = f.read()
     data = pd.read_csv(path)
     # TODO cache or optimize filter_out_descriptions - no reason to repeat this.
