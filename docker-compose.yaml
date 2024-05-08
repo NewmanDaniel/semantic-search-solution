@@ -10,5 +10,7 @@ services:
             - capabilities: ["gpu"]
     ports:
       - "7878:7878"
+    volumes:
+      - ./data:/data
     command: ["/bin/bash", "docker-entrypoint.sh"]
 

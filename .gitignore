@@ -1,4 +1,5 @@
 # Django #
+data/
 input.csv
 dbpath.txt
 config.js

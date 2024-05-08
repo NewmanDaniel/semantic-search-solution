@@ -31,6 +31,7 @@ COPY ss_back_end /app
 RUN echo "Running a test training step, which will download necessary model files so they are cached in the image"
 RUN python -m ss_app.semantic_search sample_data/financial_compliance_feedback_database.csv
 
+
 # Expose the port on which your Django application will run (change if necessary)
 EXPOSE 7878
 
