@@ -1,4 +1,6 @@
 # Django #
+data/
+input.csv
 dbpath.txt
 config.js
 DS_STORE

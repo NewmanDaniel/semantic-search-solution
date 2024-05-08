@@ -1,0 +1,16 @@
+version: '3'
+services:
+  semanticsearch:
+    build: .
+    image: semanticsearch
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: ["gpu"]
+    ports:
+      - "7878:7878"
+    volumes:
+      - ./data:/data
+    command: ["/bin/bash", "docker-entrypoint.sh"]
+
