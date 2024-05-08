@@ -8,6 +8,7 @@ from tqdm import tqdm  # Importing tqdm
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 from celery_config import app
+from ss_back_end.settings import MODEL_PATH
 
 
 # Check for NVIDIA GPU with CUDA, then for Apple Silicon GPU (MPS), otherwise use CPU
@@ -82,13 +83,13 @@ def get_embeddings_batch(tokenized_descriptions):
 def save_embeddings(data):
     """Saves embeddings for all valid descriptions in batches."""
     embeddings = model.encode(data['DESCRIPTION'].tolist(), convert_to_numpy=True, show_progress_bar=True)
-    with open('embeddings_new_model.pkl', 'wb') as f:
+    with open(MODEL_PATH, 'wb') as f:
         pickle.dump(embeddings, f)
 
 def find_similar_proposals(DESCRIPTION, top_k=5):
     """Finds and returns the indices of the top_k most similar proposal descriptions."""
     embedding = model.encode(DESCRIPTION, convert_to_numpy=True)
-    with open('embeddings_new_model.pkl', 'rb') as f:
+    with open(MODEL_PATH, 'rb') as f:
         saved_embeddings = pickle.load(f)
     similarities = cosine_similarity([embedding], saved_embeddings)
     return similarities.argsort(axis=1)[0, -top_k:][::-1]  # get top k indices in descending order
